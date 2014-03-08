@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "Lomoplog.Application",
+	name: "Application",
 	kind: "enyo.Application",
 	view: "MainView",
 	initComponents: function() {
