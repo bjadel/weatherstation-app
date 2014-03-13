@@ -2,7 +2,7 @@ enyo.depends(
 	// include support libraries
 	"$lib/layout",
 	"$lib/onyx",
-	"$lib/enyo-ilib",
+	//"$lib/enyo-ilib",
 	// include application sources
 	"css",
 	"models",
