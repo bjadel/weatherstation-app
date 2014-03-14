@@ -37,10 +37,16 @@ enyo.kind({
     this.inherited(arguments);
     // init model for latestView
     var latestModel = new LatestModel();
+    latestModel.addListener("change", function(record, event) {
+      this.app.$.mainView.$.MainMenuPane.updateLatestView(record);
+    }, false);
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
     // init model for impressumView
     this.$.impressumView.set("appModel", new AppModel());
+  },
+  updateLatestView: function(record) {
+    this.$.latestView.loadTachometer(record);
   },
   viewChangeHandler: function(inSender, inEvent) {
     this.log();
