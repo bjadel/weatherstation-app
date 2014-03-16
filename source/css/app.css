@@ -59,6 +59,14 @@
   text-align:justify;
 }
 
+.menu-item.today {
+  border-left-width:1em;
+  border-left-style:solid;
+  border-color:#2434d4;
+  padding-left:1em;
+  text-align:justify;
+}
+
 .menu-item.impressum {
   border-left-width:1em;
   border-left-style:solid;
@@ -109,6 +117,17 @@
   border-left-width:0.3em;
   border-left-style:solid;
   border-color:#7be91e;
+  padding-left:0.3em;
+  text-align:justify;
+}
+
+.toolbar.today {
+  border-top-width:0px;
+  border-bottom-width:0px;
+  border-right-width:0px;
+  border-left-width:0.3em;
+  border-left-style:solid;
+  border-color:#2434d4;
   padding-left:0.3em;
   text-align:justify;
 }

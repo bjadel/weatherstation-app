@@ -1,4 +1,5 @@
 enyo.depends(
 	"AppModel.js",
-	"LatestModel.js"
+	"LatestModel.js",
+	"TodayModel.js"
 );

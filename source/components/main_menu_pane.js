@@ -12,6 +12,7 @@ enyo.kind({
       menu: [
         { content: "Men" + unescape("%FC"), classes: "menu-header" },
         { content: "Aktuell", view: "latestMeasuredData", classes: "menu-item latest" },
+        { content: "Heute", view: "todayMeasuredData", classes: "menu-item today" },
         { content: "Impressum", view: "impressum", classes: "menu-item impressum" }
       ],
       components: [
@@ -19,6 +20,12 @@ enyo.kind({
             { name: "latestToolbar", kind: "Toolbar", header: "Aktuell", classes: "latest", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
             { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
               { kind: "LatestView", name: "latestView", classes: "content"}
+            ]}
+        ]},
+        { name: "todayMeasuredData", classes: "view", components: [
+            { name: "todayToolbar", kind: "Toolbar", header: "Heute", classes: "today", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
+            { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
+              { kind: "TodayView", name: "todayView", classes: "content"}
             ]}
         ]},
         { name: "impressum", classes: "view", components: [
@@ -40,12 +47,23 @@ enyo.kind({
     }, false);
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
+    // init todayView
+    var date = new Date();
+    this.$.todayToolbar.setHeader("Heute - " + date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear());
+    var todayModel = new TodayModel();
+    todayModel.addListener("change", function(record, event) {
+      this.app.$.mainView.$.MainMenuPane.updateTodayView(record);
+    }, false);
+    todayModel.fetch();
     // init model for impressumView
     this.$.impressumView.set("appModel", new AppModel());
   },
   updateLatestView: function(record) {
     this.$.latestToolbar.setHeader("Aktuell - " + record.attributes.date);
     this.$.latestView.loadTachometer(record);
+  },
+  updateTodayView: function(record) {
+    this.$.todayView.loadChart(record);
   },
   viewChangeHandler: function(inSender, inEvent) {
     this.log();

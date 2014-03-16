@@ -42,7 +42,7 @@ enyo.kind({
   style: "overflow: hidden;",
   position: {  // default to 85% open
     menu: {
-      min: 0, max: 85
+      min: 0, max: 80
     }
   },
   controlParentName: "pane",
@@ -53,7 +53,7 @@ enyo.kind({
       ontap: "menuTapHandler"
     },
     { name: "pane", kind: "enyo.Slideable", classes: "menupane-pane",
-      value: 0, min: 0, max: 85, unit: "%", draggable: false,
+      value: 0, min: 0, max: 80, unit: "%", draggable: false,
       style: "width: 100%; height: 100%;",
       onAnimateFinish: "paneAnimateFinishHandler"
     }

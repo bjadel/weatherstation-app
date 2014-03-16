@@ -33,9 +33,9 @@ enyo.kind({
 	loadTachometer: function(record) {
 		// temperature 1 sensor
 		var temperature1 = parseFloat(record.attributes.valueT1);
-    	Raphael('temperatureSensor1').tachometer(temperature1, {number: true, numberMin: -40, numberMax: 35, numberUnit: "°C"});
+    	Raphael('temperatureSensor1').tachometer(temperature1, {number: true, numberMin: -25, numberMax: 35, numberUnit: "°C"});
     	// temperature 1 sensor
 		var temperature2 = parseFloat(record.attributes.valueT2);
-    	Raphael('temperatureSensor2').tachometer(temperature2, {number: true, numberMin: -40, numberMax: 35, numberUnit: "°C"});
+    	Raphael('temperatureSensor2').tachometer(temperature2, {number: true, numberMin: -25, numberMax: 35, numberUnit: "°C"});
 	}
 });
