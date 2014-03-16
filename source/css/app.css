@@ -42,6 +42,29 @@
 
 .menu-item {
   background-color: rgb(128,128,128);
+  background: -moz-linear-gradient(top, #313131 0%, #313131 50%, #313131 51%, #191919 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(50%,#313131), color-stop(51%,#313131), color-stop(100%,#191919));/* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#313131', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+}
+
+.menu-item.latest {
+  border-left-width:1em;
+  border-left-style:solid;
+  border-color:#7be91e;
+  padding-left:1em;
+  text-align:justify;
+}
+
+.menu-item.impressum {
+  border-left-width:1em;
+  border-left-style:solid;
+  border-color:#e4fe6e;
+  padding-left:1em;
+  text-align:justify;
 }
 
 .menupane-pane {
@@ -51,11 +74,52 @@
 }
 
 .content {
-  padding: 32px;
+  padding: 15px;
   min-height: 5000px;
 }
 
-#canvas {
+.tachometer {
   width: 200px;
   height: 200px;
+}
+
+.latest_sensor_element {
+  text-align: center;
+  float: left;
+  margin-right: 25px;
+}
+
+.latest_sensor_element h4, .latest_sensor_element span, .latest_sensor_element div {
+  text-align: center !important;
+  float: none !important;
+}
+
+.view h3 {
+  margin-top: 0px;
+}
+
+.toolbar {
+
+}
+
+.toolbar.latest {
+  border-top-width:0px;
+  border-bottom-width:0px;
+  border-right-width:0px;
+  border-left-width:0.3em;
+  border-left-style:solid;
+  border-color:#7be91e;
+  padding-left:0.3em;
+  text-align:justify;
+}
+
+.toolbar.impressum {
+  border-top-width:0px;
+  border-bottom-width:0px;
+  border-right-width:0px;
+  border-left-width:0.3em;
+  border-left-style:solid;
+  border-color:#e4fe6e;
+  padding-left:0.3em;
+  text-align:justify;
 }

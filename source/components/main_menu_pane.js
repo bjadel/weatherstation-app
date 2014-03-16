@@ -10,25 +10,23 @@ enyo.kind({
       onMenuOpen: "menuOpenHandler",
       onMenuClose: "menuCloseHandler",
       menu: [
-        { content: "Menu", classes: "menu-header" },
-        { content: "Aktuell", view: "latestMeasuredData", classes: "menu-item" },
-        { content: "Impressum", view: "impressum", classes: "menu-item" }
+        { content: "Men" + unescape("%FC"), classes: "menu-header" },
+        { content: "Aktuell", view: "latestMeasuredData", classes: "menu-item latest" },
+        { content: "Impressum", view: "impressum", classes: "menu-item impressum" }
       ],
       components: [
-        { name: "latestMeasuredData", classes: "view",
-          components: [
-            { kind: "Toolbar",
-              header: "Aktuell",
-              onToggleMenu: "toolbarToggleMenuHandler" },
-              { kind: "LatestView", name: "latestView", classes: "content"} ]
-        },
-        { name: "impressum", classes: "view",
-              components: [
-                { kind: "Toolbar",
-                  header: "Impressum",
-                  onToggleMenu: "toolbarToggleMenuHandler" },
-                  { kind: "ImpressumView", name: "impressumView", classes: "content"} ]
-        }
+        { name: "latestMeasuredData", classes: "view", components: [
+            { name: "latestToolbar", kind: "Toolbar", header: "Aktuell", classes: "latest", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
+            { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
+              { kind: "LatestView", name: "latestView", classes: "content"}
+            ]}
+        ]},
+        { name: "impressum", classes: "view", components: [
+            { kind: "Toolbar", header: "Impressum", classes: "impressum", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
+            { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
+              { kind: "ImpressumView", name: "impressumView", classes: "content"}
+            ]}
+        ]}
       ]
     }
   ],
@@ -46,6 +44,7 @@ enyo.kind({
     this.$.impressumView.set("appModel", new AppModel());
   },
   updateLatestView: function(record) {
+    this.$.latestToolbar.setHeader("Aktuell - " + record.attributes.date);
     this.$.latestView.loadTachometer(record);
   },
   viewChangeHandler: function(inSender, inEvent) {
@@ -78,6 +77,7 @@ enyo.kind({
 enyo.kind({
 	  name: "Toolbar",
 	  kind: "onyx.Toolbar",
+    classes: "toolbar",
 	  published: {
 	    header: ""
 	  },

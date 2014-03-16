@@ -1,6 +1,5 @@
 enyo.kind({
 	name: "ImpressumView",
-	kind: "FittableRows",
 	noStretch: true,
 	published: {
 		appModel: null
