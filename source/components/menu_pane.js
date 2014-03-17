@@ -112,7 +112,7 @@ enyo.kind({
     }
     appModel = new AppModel();
     if (appModel.get("existsBigScreen")) {
-    	this.toggleMenu(null, null)
+    	this.toggleMenu(null, null);
     }
   },
 

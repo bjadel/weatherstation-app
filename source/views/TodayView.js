@@ -6,7 +6,7 @@ enyo.kind({
 			{name: "sensors", layoutKind: "FittableColumnsLayout", noStretch: true, components: [
 				{layoutKind: "FittableRowsLayout", classes: "today_sensor_element", noStretch: true, components: [
 					{content: "Temperatur", classes: "name", tag: "h4"},
-					{id: "temperatureChart", classes: "temperature", tag: "canvas", width: "90%", height: "90%"}
+					{id: "temperatureChart", classes: "temperature", tag: "canvas"}
 				]}
 			]}
 		]}
@@ -14,25 +14,36 @@ enyo.kind({
 	loadChart: function(record) {
 		// temperature 1 sensor
 		$temperature1Data = record.attributes.t1;
-    	// temperature 1 sensor
-		$temperature2Data = record.attributes.t2;
+		$temperature1 = Object.keys($temperature1Data).map(function (key) {
+    		return $temperature1Data[key];
+		});
+    	// temperature 2 sensor
+		$temperature2 = Object.keys(record.attributes.t2).map(function (key) {
+			return record.attributes.t2[key];
+		});
 		// data
 		var data = {
-			labels : $temperature1Data,
+			labels : Object.keys($temperature1Data).map(function (key) {
+					if( key.substr(-2) === "00" ) {
+						return key;
+					} else {
+						return "";
+					}
+			}),
 			datasets : [
 				{
 					fillColor : "rgba(220,220,220,0.5)",
 					strokeColor : "rgba(220,220,220,1)",
 					pointColor : "rgba(220,220,220,1)",
 					pointStrokeColor : "#fff",
-					data : $temperature1Data
+					data : $temperature1
 				},
 				{
 					fillColor : "rgba(151,187,205,0.5)",
 					strokeColor : "rgba(151,187,205,1)",
 					pointColor : "rgba(151,187,205,1)",
 					pointStrokeColor : "#fff",
-					data : $temperature2Data
+					data : $temperature2
 				}
 			]
 		}
@@ -124,8 +135,14 @@ enyo.kind({
 		}
 		// chart
 		var ctx = document.getElementById("temperatureChart").getContext("2d");
-		ctx.canvas.width = 640;
-		ctx.canvas.height = 480;
+		appModel = new AppModel();
+    	if (appModel.get("existsBigScreen")) {
+    		ctx.canvas.width = 640;
+			ctx.canvas.height = 480;
+    	} else {
+    		ctx.canvas.width = 320;
+			ctx.canvas.height = 240;
+    	}
 		var temperatureChart = new Chart(ctx).Line(data,options);
 	}
 });
