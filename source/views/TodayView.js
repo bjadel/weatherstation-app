@@ -15,15 +15,16 @@ enyo.kind({
 		// temperature 1 sensor
 		$temperature1Data = record.attributes.t1;
 		$temperature1 = Object.keys($temperature1Data).map(function (key) {
-    		return $temperature1Data[key];
+    		return parseFloat($temperature1Data[key]);
 		});
     	// temperature 2 sensor
-		$temperature2 = Object.keys(record.attributes.t2).map(function (key) {
-			return record.attributes.t2[key];
+    	$temperature2Data = record.attributes.t2;
+		$temperature2 = Object.keys($temperature2Data).map(function (key) {
+			return parseFloat($temperature2Data[key]);
 		});
 		// data
 		var data = {
-			labels : Object.keys($temperature1Data).map(function (key) {
+			labels : Object.keys(record.attributes.t1).map(function (key) {
 					if( key.substr(-2) === "00" ) {
 						return key;
 					} else {
