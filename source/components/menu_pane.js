@@ -88,7 +88,7 @@ enyo.kind({
     	this.$.pane.setMin(this.position.menu.min);
     	this.$.pane.setUnit("%");
     } else {
-    	this.$.pane.setMax(320);
+    	this.$.pane.setMax(290);
     	this.$.pane.setMin(0);
     	this.$.pane.setUnit("px");
     }

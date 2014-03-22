@@ -13,7 +13,7 @@ enyo.kind({
 		supportMail: "mailto:bjawebos@adelberg-online.de",
 		supportHomepage: "http://dev.adelberg-online.de",
 		supportTwitter: "https://twitter.com/bjawebos",
-		existsSmallScreen: enyo.dom.getWindowWidth() <= 330,
+		existsSmallScreen: enyo.dom.getWindowWidth() <= 348,
 		existsBigScreen: enyo.dom.getWindowWidth() > 760
 	}
 });
