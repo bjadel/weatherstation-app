@@ -137,7 +137,7 @@ enyo.kind({
 		// chart
 		var ctx = document.getElementById("temperatureChart").getContext("2d");
 		appModel = new AppModel();
-    	if (appModel.get("existsBigScreen")) {
+    	if (appModel.computeExistsBigScreen()) {
     		ctx.canvas.width = 640;
 			ctx.canvas.height = 480;
     	} else {

@@ -12,8 +12,12 @@ enyo.kind({
 		author: "Björn Adelberg",
 		supportMail: "mailto:bjawebos@adelberg-online.de",
 		supportHomepage: "http://dev.adelberg-online.de",
-		supportTwitter: "https://twitter.com/bjawebos",
-		existsSmallScreen: enyo.dom.getWindowWidth() <= 348,
-		existsBigScreen: enyo.dom.getWindowWidth() > 760
+		supportTwitter: "https://twitter.com/bjawebos"
+	},
+	computeExistsSmallScreen: function() {
+		return enyo.dom.getWindowWidth() <= 348;
+	},
+	computeExistsBigScreen: function() {
+		return enyo.dom.getWindowWidth() > 760;
 	}
 });

@@ -83,7 +83,7 @@ enyo.kind({
   //* toggles the main menu
   toggleMenu: function(inSender, ionOriginator) {
     this.$.menu.setShowing(true);
-    if (appModel.get("existsSmallScreen")) {
+    if (appModel.computeExistsSmallScreen()) {
     	this.$.pane.setMax(this.position.menu.max);
     	this.$.pane.setMin(this.position.menu.min);
     	this.$.pane.setUnit("%");
@@ -111,7 +111,7 @@ enyo.kind({
       this.setView(views[0].name);
     }
     appModel = new AppModel();
-    if (appModel.get("existsBigScreen")) {
+    if (appModel.computeExistsBigScreen()) {
     	this.toggleMenu(null, null);
     }
   },
@@ -141,12 +141,12 @@ enyo.kind({
 
     if (view) {
       if (this.getView() == view) {
-    	  if (!appModel.get("existsBigScreen")) {
+    	  if (!appModel.computeExistsBigScreen()) {
     		  this.$.pane["animateToMin"]();
     	  }
     	  // dont need to set view
       } else {
-    	  if (!appModel.get("existsBigScreen")) {
+    	  if (!appModel.computeExistsBigScreen()) {
     	    	this.$.pane.$.animator.setDuration(200);
     	    	this.$.pane.animateTo(0);
     	    	this.toview = view;
