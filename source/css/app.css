@@ -102,6 +102,10 @@
   float: none !important;
 }
 
+.enyo-fittable-columns-layout.latest {
+  float: none;
+}
+
 .view h3 {
   margin-top: 0px;
 }
