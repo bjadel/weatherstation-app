@@ -1,7 +1,6 @@
 enyo.kind({
   name: "MainMenuPane",
   classes: "enyo-unselectable",
-  controller: ".app.controllers.filmCollection",
   components: [
     // height necessary.
     { name: "menupane", kind: "rwatkins.MenuPane",
@@ -43,7 +42,7 @@ enyo.kind({
     // init model for latestView
     var latestModel = new LatestModel();
     latestModel.addListener("change", function(record, event) {
-      this.app.$.mainView.$.MainMenuPane.updateLatestView(record);
+      app.$.mainView.$.MainMenuPane.updateLatestView(record);
     }, false);
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
@@ -52,7 +51,7 @@ enyo.kind({
     this.$.todayToolbar.setHeader("Heute - " + date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear());
     var todayModel = new TodayModel();
     todayModel.addListener("change", function(record, event) {
-      this.app.$.mainView.$.MainMenuPane.updateTodayView(record);
+      app.$.mainView.$.MainMenuPane.updateTodayView(record);
     }, false);
     todayModel.fetch();
     // init model for impressumView
@@ -60,7 +59,6 @@ enyo.kind({
   },
   updateLatestView: function(record) {
     this.$.latestToolbar.setHeader("Aktuell - " + record.attributes.date);
-    this.$.latestView.loadTachometer(record);
   },
   updateTodayView: function(record) {
     this.$.todayView.loadChart(record);

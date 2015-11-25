@@ -8,10 +8,10 @@ enyo.kind({
 		// moving this property to the attributes schema definition will
 		// allow the onChange event to be fired when that property changes
 		appName: "Wetter",
-		version: "0.0.1",
+		version: "0.0.2",
 		author: "Björn Adelberg",
 		supportMail: "mailto:bjawebos@adelberg-online.de",
-		supportHomepage: "http://dev.adelberg-online.de",
+		supportHomepage: "https://github.com/bjadel/weatherstation-app",
 		supportTwitter: "https://twitter.com/bjawebos"
 	},
 	computeExistsSmallScreen: function() {

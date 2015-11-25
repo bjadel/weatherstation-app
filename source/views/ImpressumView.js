@@ -6,23 +6,47 @@ enyo.kind({
 	},
 	components: [{
 		layoutKind: "FittableRowsLayout", noStretch: true, components: [
-			{content: "App Name:", classes: "name", tag: "span"},
-			{name: "appName", classes: "name last", tag: "span"},
-			{content: "App Version:", classes: "name", tag: "span"},
-			{name: "version", classes: "name last", tag: "span"},
-			{content: "Autor:", classes: "name", tag: "span"},
-			{name: "author", classes: "name last", tag: "span"},
-			{content: "E-Mail:", classes: "name", tag: "span"},
-			{name: "email", classes: "name last", tag: "span"},
-			{content: "Homepage:", classes: "name", tag: "span"},
-			{name: "homepage", classes: "name last", tag: "span"}
+			{name: "sensors", layoutKind: "FittableColumnsLayout", classes: "impressum", noStretch: true, components: [
+				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
+					{tag: "span", components: [
+						{name: "appName", classes: "impressum-text", tag: "div"},
+						{content: "App Name", classes: "impressum-title", tag: "div"}
+					]}
+				]},
+				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
+					{tag: "span", components: [
+						{name: "version", classes: "impressum-text", tag: "div"},
+						{content: "Version", classes: "impressum-title", tag: "div"}
+					]}
+				]},
+				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
+					{tag: "span", components: [
+						{name: "author", classes: "impressum-text", tag: "div"},
+						{content: "Author", classes: "impressum-title", tag: "div"}
+					]}
+				]},
+				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
+					{tag: "span", components: [
+						{name: "email", content: "", classes: "impressum-text", tag: "a", allowHtml: true},
+						{content: "E-Mail", classes: "impressum-title", tag: "div"}
+					]}
+				]},
+				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
+					{tag: "span", components: [
+						{name: "homepage", content: "", classes: "impressum-text", tag: "a", allowHtml: true},
+						{content: "Homepage", classes: "impressum-title", tag: "div"}
+					]}
+				]}
+			]}
 		]}
 	],
 	bindings: [
 		{from: ".appModel.appName", to: ".$.appName.content"},
 		{from: ".appModel.author", to: ".$.author.content"},
 		{from: ".appModel.supportMail", to: ".$.email.content"},
+		{from: ".appModel.supportMail", to: ".$.email.attributes.href"},
 		{from: ".appModel.supportHomepage", to: ".$.homepage.content"},
+		{from: ".appModel.supportHomepage", to: ".$.homepage.attributes.href"},
 		{from: ".appModel.version", to: ".$.version.content"}
 	]
 });

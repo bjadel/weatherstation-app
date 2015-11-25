@@ -15,5 +15,6 @@ enyo.kind({
 		}
 		data.date = date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear() + " " + date.getHours() + ":" + prefixMinute + date.getMinutes() + " Uhr";
     	return data;
-    }
+    },
+    source: 'latestModelSource'
 });
