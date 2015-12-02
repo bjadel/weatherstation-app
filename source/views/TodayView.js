@@ -144,7 +144,56 @@ enyo.kind({
   		ctx.canvas.width = 320;
 			ctx.canvas.height = 240;
   	}
-		ctx.fillRect(25,25,100,100);
-    ctx.strokeRect(50,50,50,50);
+		// bottom line
+		//ctx.moveTo(0, ctx.canvas.height - 20);
+		//ctx.lineTo(ctx.canvas.width, ctx.canvas.height - 20);
+		ctx.strokeStyle = '#fff';
+		//ctx.stroke();
+		// get min and max
+		var min = 100.0;
+		var max = -100.0;
+		$temperature1.forEach(function(t) {
+			// check min
+			if (t < min) {
+				min = t;
+			}
+			// check max
+			if (t > max) {
+				max = t;
+			}
+		});
+		// draw temperature line
+		var xStep = ctx.canvas.width / $temperature1.length;
+		var yStep = (ctx.canvas.height - 60) / (max - min);
+		var i = 0;
+		var firstElement = true;
+		var lastElement;
+		$temperature1.forEach(function(t) {
+			if (firstElement) {
+				lastElement = t;
+				firstElement = false;
+			} else {
+				ctx.moveTo(i * xStep, ctx.canvas.height - 25 - ((lastElement - min) * yStep));
+				ctx.lineTo((i + 1) * xStep, ctx.canvas.height - 25 - ((t - min) * yStep));
+				ctx.stroke();
+				i++;
+				lastElement = t;
+			}
+		});
+		// max line
+		ctx.moveTo(0, ctx.canvas.height - 25 - ((max - min) * yStep));
+		ctx.lineTo(ctx.canvas.width, ctx.canvas.height - 25 - ((max - min) * yStep));
+		ctx.setLineDash([2,3]);
+		ctx.stroke();
+		// min line
+		ctx.moveTo(0, ctx.canvas.height - 25);
+		ctx.lineTo(ctx.canvas.width, ctx.canvas.height - 25);
+		ctx.stroke();
+		// max text
+		ctx.font = "20px Arial";
+		ctx.fillStyle = "white";
+		ctx.fillText(max + "°C",10,ctx.canvas.height - 35 - ((max - min) * yStep));
+		// min text
+		ctx.fillText(min + "°C",10,ctx.canvas.height - 5);
 	}
 });
