@@ -9,5 +9,5 @@
 	path = lib/layout
 	url = https://github.com/enyojs/layout.git
 [submodule "lib/enyo-ilib"]
-        path = lib/enyo-ilib
-        url = https://github.com/enyojs/enyo-ilib
+	path = lib/enyo-ilib
+	url = https://github.com/enyojs/enyo-ilib
