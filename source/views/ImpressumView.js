@@ -4,8 +4,7 @@ enyo.kind({
 	published: {
 		appModel: null
 	},
-	components: [{
-		layoutKind: "FittableRowsLayout", noStretch: true, components: [
+	components: [{kind: "enyo.Scroller", fit: true, components: [
 			{name: "sensors", layoutKind: "FittableColumnsLayout", classes: "impressum", noStretch: true, components: [
 				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
 					{tag: "span", components: [
@@ -27,7 +26,7 @@ enyo.kind({
 				]},
 				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
 					{tag: "span", components: [
-						{name: "email", content: "", classes: "impressum-text", tag: "a", allowHtml: true},
+						{name: "email", content: "", classes: "impressum-text"},
 						{content: "E-Mail", classes: "impressum-title", tag: "div"}
 					]}
 				]},

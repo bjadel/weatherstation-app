@@ -5,27 +5,28 @@ enyo.kind({
 		latestModel: null
 	},
 	components: [
-		{layoutKind: "FittableRowsLayout", noStretch: true, components: [
-			{name: "sensors", layoutKind: "FittableColumnsLayout", classes: "latest", noStretch: true, components: [
-				{layoutKind: "FittableRowsLayout", classes: "latest_sensor_element", noStretch: true, components: [
-					{tag: "span", components: [
-						{classes: "symbol", tag: "span"},
-						{name: "t1", classes: "name", tag: "span"},
-						{content: "°C", classes: "name", tag: "span"}
-					]}
-				]},
-				{layoutKind: "FittableRowsLayout", classes: "latest_sensor_element", noStretch: true, components: [
-					{tag: "span", components: [
-						{classes: "symbol", tag: "span"},
-						{name: "t2", classes: "name", tag: "span"},
-						{content: "°C", classes: "name", tag: "span"}
-					]}
+		{kind: "enyo.Scroller", fit: true, components: [
+			{kind: "enyo.DataRepeater", name: "repeater", components: [
+				{components: [
+						{name: "sensors", layoutKind: "FittableColumnsLayout", classes: "latest", noStretch: true, components: [
+							{layoutKind: "FittableRowsLayout", classes: "latest_sensor_element", noStretch: true, components: [
+								{tag: "span", components: [
+										{kind: "enyo.Control", name: "date", classes: "name", tag: "span"},
+										{classes: "symbol", tag: "span"},
+										{kind: "enyo.Control", name: "value", classes: "name", tag: "span"},
+										{kind: "enyo.Control", name: "unit", classes: "name", tag: "span"}
+									]}
+								]}
+							]}
+				], bindings: [
+					{from: ".model.VALUE", to: ".$.value.content"},
+					{from: ".model.CREATIONDATE", to: ".$.date.content", transform: function (v) { var curLocale = new ilib.Locale(); var localeInfo = new ilib.LocaleInfo(curLocale); var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Istanbul"}); var d = fmt.format(v); return d; }},
+					{from: ".model.UNIT", to: ".$.unit.content"}
 				]}
 			]}
 		]}
 	],
 	bindings: [
-		{from: ".latestModel.valueT1", to: ".$.t1.content"},
-		{from: ".latestModel.valueT2", to: ".$.t2.content"}
+		{from: ".latestModel", to: ".$.repeater.collection"}
 	]
 });

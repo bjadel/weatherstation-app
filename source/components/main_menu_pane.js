@@ -41,9 +41,6 @@ enyo.kind({
     this.inherited(arguments);
     // init model for latestView
     var latestModel = new LatestModel();
-    latestModel.addListener("change", function(record, event) {
-      app.$.mainView.$.MainMenuPane.updateLatestView(record);
-    }, false);
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
     // init todayView
@@ -56,9 +53,6 @@ enyo.kind({
     todayModel.fetch();
     // init model for impressumView
     this.$.impressumView.set("appModel", new AppModel());
-  },
-  updateLatestView: function(record) {
-    this.$.latestToolbar.setHeader("Aktuell - " + record.attributes.date);
   },
   updateTodayView: function(record) {
     this.$.todayView.loadChart(record);

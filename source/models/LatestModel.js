@@ -1,20 +1,11 @@
 enyo.kind({
 	name: "LatestModel",
-	kind: "enyo.Model",
+	kind: "enyo.Collection",
 	getUrl: function() {
-    return "http://www.adelberg-online.de/weatherstation/ws/app/latest";
+    return "http://www.adelberg-online.de/weatherstation/ws/app/location/1/latest";
   },
   parse: function(data) {
-  	// format date
-  	var timestamp = data.date;
-  	if(timestamp.indexOf('Z')==-1)timestamp=timestamp.replace(' ','T')+'Z';
-		var date = new Date(timestamp);
-		var prefixMinute = "";
-		if (date.getMinutes() < 10) {
-			prefixMinute = date.getMinutes();
-		}
-		data.date = date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear() + " " + date.getHours() + ":" + prefixMinute + date.getMinutes() + " Uhr";
-  	return data;
+  	return data.result;
   },
   source: 'latestModelSource'
 });
