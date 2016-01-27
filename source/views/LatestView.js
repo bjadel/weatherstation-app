@@ -20,7 +20,7 @@ enyo.kind({
 							]}
 				], bindings: [
 					{from: ".model.VALUE", to: ".$.value.content"},
-					{from: ".model.CREATIONDATE", to: ".$.date.content", transform: function (v) { var curLocale = new ilib.Locale(); var localeInfo = new ilib.LocaleInfo(curLocale); var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Istanbul"}); var d = fmt.format(v); return d; }},
+					{from: ".model.CREATIONDATE", to: ".$.date.content", transform: function (v) { var curLocale = new ilib.Locale(); var localeInfo = new ilib.LocaleInfo(curLocale); var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Berlin"}); var d = fmt.format(v); return v; }},
 					{from: ".model.UNIT", to: ".$.unit.content"}
 				]}
 			]}
