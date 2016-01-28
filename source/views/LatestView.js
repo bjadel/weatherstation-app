@@ -20,7 +20,29 @@ enyo.kind({
 							]}
 				], bindings: [
 					{from: ".model.VALUE", to: ".$.value.content"},
-					{from: ".model.CREATIONDATE", to: ".$.date.content", transform: function (v) { var curLocale = new ilib.Locale(); var localeInfo = new ilib.LocaleInfo(curLocale); var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Berlin"}); var d = fmt.format(v); return v; }},
+					{from: ".model.CREATIONDATE", to: ".$.date.content", transform:
+						function (v) {
+							try {
+								var dateTimeArray = v.trim().split(" ");
+								var dateArray = dateTimeArray[0].split("-");
+								var timeArray = dateTimeArray[1].split(":");
+								var year = dateArray[0];
+								var month = parseInt(dateArray[1]) - 1;
+								var day = dateArray[2];
+								var hour = timeArray[0];
+								var minute = timeArray[1];
+								var second = timeArray[2];
+								var curLocale = new ilib.Locale();
+								var localeInfo = new ilib.LocaleInfo(curLocale);
+								var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Berlin"});
+								var d = fmt.format(new Date(Date.UTC(year, month, day, hour, minute, second)));
+							} catch(err) {
+								console.exception("Parsing error of date.");
+								return v;
+							}
+							return d;
+						}
+					},
 					{from: ".model.UNIT", to: ".$.unit.content"}
 				]}
 			]}
