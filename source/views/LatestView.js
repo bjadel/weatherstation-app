@@ -43,7 +43,11 @@ enyo.kind({
 							return d;
 						}
 					},
-					{from: ".model.UNIT", to: ".$.unit.content"}
+					{from: ".model.UNIT", to: ".$.unit.content", transform:
+						function (v) {
+							return $L(v);
+						}
+					}
 				]}
 			]}
 		]}
