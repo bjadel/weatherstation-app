@@ -5,7 +5,7 @@ enyo.kind({
 		appModel: null
 	},
 	components: [{kind: "enyo.Scroller", fit: true, components: [
-			{name: "sensors", layoutKind: "FittableColumnsLayout", classes: "impressum", noStretch: true, components: [
+			{layoutKind: "FittableColumnsLayout", classes: "impressum", noStretch: true, components: [
 				{layoutKind: "FittableRowsLayout", classes: "impressum-entry", noStretch: true, components: [
 					{tag: "span", components: [
 						{name: "appName", classes: "impressum-text", tag: "div"},
@@ -40,12 +40,12 @@ enyo.kind({
 		]}
 	],
 	bindings: [
-		{from: ".appModel.appName", to: ".$.appName.content"},
-		{from: ".appModel.author", to: ".$.author.content"},
-		{from: ".appModel.supportMail", to: ".$.email.content"},
-		{from: ".appModel.supportMail", to: ".$.email.attributes.href"},
-		{from: ".appModel.supportHomepage", to: ".$.homepage.content"},
-		{from: ".appModel.supportHomepage", to: ".$.homepage.attributes.href"},
-		{from: ".appModel.version", to: ".$.version.content"}
+		{from: "appModel.appName", to: "$.appName.content"},
+		{from: "appModel.author", to: "$.author.content"},
+		{from: "appModel.supportMail", to: "$.email.content"},
+		{from: "appModel.supportMail", to: "$.email.attributes.href"},
+		{from: "appModel.supportHomepage", to: "$.homepage.content"},
+		{from: "appModel.supportHomepage", to: "$.homepage.attributes.href"},
+		{from: "appModel.version", to: "$.version.content"}
 	]
 });

@@ -71,6 +71,14 @@
   text-align:justify;
 }
 
+.menu-item.settings {
+  border-left-width:1em;
+  border-left-style:solid;
+  border-color:#CDAA7D;
+  padding-left:1em;
+  text-align:justify;
+}
+
 .menu-item.impressum {
   border-left-width:1em;
   border-left-style:solid;
@@ -90,17 +98,13 @@
   min-height: 5000px;
 }
 
-.tachometer {
-  width: 200px;
-  height: 200px;
-}
-
 .latest_sensor_element {
   text-align: center;
   float: left;
   background-color: #bbb;
   color: #444;
   margin-right: 25px;
+	margin-bottom: 25px;
   border-style: groove;
   border-width: 2px;
   border-color: #7be91e;
@@ -175,6 +179,17 @@
   border-left-width:0.3em;
   border-left-style:solid;
   border-color:#2434d4;
+  padding-left:0.3em;
+  text-align:justify;
+}
+
+.toolbar.settings {
+  border-top-width:0px;
+  border-bottom-width:0px;
+  border-right-width:0px;
+  border-left-width:0.3em;
+  border-left-style:solid;
+  border-color:#CDAA7D;
   padding-left:0.3em;
   text-align:justify;
 }

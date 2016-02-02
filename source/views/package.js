@@ -2,5 +2,6 @@ enyo.depends(
 	"MainView.js",
 	"LatestView.js",
 	"ImpressumView.js",
-	"TodayView.js"
+	"TodayView.js",
+	"SettingsView.js"
 );

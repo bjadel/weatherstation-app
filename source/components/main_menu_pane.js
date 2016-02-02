@@ -10,21 +10,28 @@ enyo.kind({
       onMenuClose: "menuCloseHandler",
       menu: [
         { content: "Men" + unescape("%FC"), classes: "menu-header" },
-        { content: "Aktuell", view: "latestMeasuredData", classes: "menu-item latest" },
-        { content: "Heute", view: "todayMeasuredData", classes: "menu-item today" },
+        { content: "Aktuell", view: "latest", classes: "menu-item latest" },
+        { content: "Heute", view: "today", classes: "menu-item today" },
+        { content: "Einstellungen", view: "settings", classes: "menu-item settings" },
         { content: "Impressum", view: "impressum", classes: "menu-item impressum" }
       ],
       components: [
-        { name: "latestMeasuredData", classes: "view", components: [
+        { name: "latest", classes: "view", components: [
             { name: "latestToolbar", kind: "Toolbar", header: "Aktuell", classes: "latest", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
             { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
               { kind: "LatestView", name: "latestView", classes: "content"}
             ]}
         ]},
-        { name: "todayMeasuredData", classes: "view", components: [
+        { name: "today", classes: "view", components: [
             { name: "todayToolbar", kind: "Toolbar", header: "Heute", classes: "today", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
             { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
               { kind: "TodayView", name: "todayView", classes: "content"}
+            ]}
+        ]},
+        { name: "settings", classes: "view", components: [
+            { name: "settingsToolbar", kind: "Toolbar", header: "Einstellungen", classes: "settings", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
+            { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
+              { kind: "SettingsView", name: "settingsView", classes: "content"}
             ]}
         ]},
         { name: "impressum", classes: "view", components: [
@@ -39,10 +46,13 @@ enyo.kind({
   //* @protected
   create: function() {
     this.inherited(arguments);
+    // init model for selected location
+    var locationModel = new LocationModel();
     // init model for latestView
-    var latestModel = new LatestModel();
+    var latestModel = new LatestModel(locationModel);
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
+    this.$.latestView.set("locationModel", locationModel);
     // init todayView
     var date = new Date();
     this.$.todayToolbar.setHeader("Heute - " + date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear());
@@ -51,6 +61,11 @@ enyo.kind({
       app.$.mainView.$.MainMenuPane.updateTodayView(record);
     }, false);
     todayModel.fetch();
+    // init settingsview
+    var settingsModel = new SettingsModel();
+    settingsModel.fetch();
+    this.$.settingsView.set("settingsModel", settingsModel);
+    this.$.settingsView.set("locationModel", locationModel);
     // init model for impressumView
     this.$.impressumView.set("appModel", new AppModel());
   },

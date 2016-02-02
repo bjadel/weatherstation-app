@@ -3,7 +3,7 @@ enyo.kind({
 	noStretch: true,
 	components: [
 		{layoutKind: "FittableRowsLayout", noStretch: true, components: [
-			{name: "sensors", layoutKind: "FittableColumnsLayout", noStretch: true, components: [
+			{layoutKind: "FittableColumnsLayout", noStretch: true, components: [
 				{layoutKind: "FittableRowsLayout", classes: "today_sensor_element", noStretch: true, components: [
 					{content: "Temperatur", classes: "name", tag: "h4"},
 					{name: "temperatureChart", id: "temperatureChart", classes: "temperature", tag: "canvas"}

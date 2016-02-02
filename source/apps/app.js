@@ -5,6 +5,7 @@ enyo.kind({
 	initComponents: function() {
 		this.inherited(arguments);
 		enyo.AjaxSource.create({name:'latestModelSource'});
-		enyo.AjaxSource.create({name:'todayModelSource'}); 
+		enyo.AjaxSource.create({name:'todayModelSource'});
+		enyo.AjaxSource.create({name:'settingsModelSource'}); 
 	}
 });
