@@ -3,7 +3,8 @@ enyo.kind({
 	noStretch: true,
 	published: {
 		settingsModel: null,
-		locationModel: null
+		locationModel: null,
+		latestModel: null
 	},
 	components: [
     {classes: "onyx-sample-divider", content: "Wetterstationen"},
@@ -26,6 +27,9 @@ enyo.kind({
     if (inEvent.originator.getActive()) {
 			var locationId = inEvent.originator.key;
 			this.locationModel.set("locationId", locationId);
+			this.latestModel.set("locationId", locationId);
+			this.latestModel.empty();
+			this.latestModel.fetch();
     }
 		return true;
 	}

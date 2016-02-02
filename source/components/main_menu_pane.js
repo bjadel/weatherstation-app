@@ -49,10 +49,9 @@ enyo.kind({
     // init model for selected location
     var locationModel = new LocationModel();
     // init model for latestView
-    var latestModel = new LatestModel(locationModel);
+    var latestModel = new LatestModel({locationId: locationModel.locationId});
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
-    this.$.latestView.set("locationModel", locationModel);
     // init todayView
     var date = new Date();
     this.$.todayToolbar.setHeader("Heute - " + date.getDate() + '.' + (date.getMonth()+1) + "." + date.getFullYear());
@@ -66,6 +65,7 @@ enyo.kind({
     settingsModel.fetch();
     this.$.settingsView.set("settingsModel", settingsModel);
     this.$.settingsView.set("locationModel", locationModel);
+    this.$.settingsView.set("latestModel", latestModel);
     // init model for impressumView
     this.$.impressumView.set("appModel", new AppModel());
   },

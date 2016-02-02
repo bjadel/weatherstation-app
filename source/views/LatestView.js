@@ -2,15 +2,8 @@ enyo.kind({
 	name: "LatestView",
 	noStretch: true,
 	published: {
-		latestModel: null,
-		locationModel: null
+		latestModel: null
 	},
-	observers: {
-		watchValues: ["locationModel"]
-	},
-	watchValues: function(previous, current, property) {  // Called when either property changes
-    this.latestModel.fetch();
-  },
 	components: [
 		{kind: "enyo.DataRepeater", name: "repeater", components: [
 			{components: [
