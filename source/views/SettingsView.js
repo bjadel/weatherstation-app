@@ -11,7 +11,7 @@ enyo.kind({
     {kind: "enyo.Group", onActivate: "handleActiveChanged", components: [
 	    {kind: "enyo.DataRepeater", name: "repeater", components: [
 	      {components: [
-					{ kind:"onyx.Checkbox", name: "checkbox", key: "0"},
+					{ kind:"onyx.Checkbox", name: "checkbox", key: "0", checked: function() {if (this.$.checkbox.key == this.locationModel.get('locationId')) {return true} else {return false;}}},
 					{ name: "name", content: "Wetterstation", tag: "span"}
 				], bindings: [
 	        {from: "model.NAME", to: "$.name.content"},

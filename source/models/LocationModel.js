@@ -4,5 +4,8 @@
 enyo.kind({
 	name: "LocationModel",
 	kind: "enyo.Model",
-	locationId: "1"
+	locationIdChanged: function(locationIdOld) {
+		var newLocationId = this.get("locationId");
+		localStorage.setItem("locationId", newLocationId);
+	}
 });

@@ -47,9 +47,13 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
     // init model for selected location
-    var locationModel = new LocationModel();
+    var locationId = localStorage.getItem("locationId");
+    if (locationId == null) {
+	locationId = 1;
+    }
+    var locationModel = new LocationModel({locationId: locationId});
     // init model for latestView
-    var latestModel = new LatestModel({locationId: locationModel.locationId});
+    var latestModel = new LatestModel({locationId: locationId});
     latestModel.fetch();
     this.$.latestView.set("latestModel", latestModel);
     // init todayView
