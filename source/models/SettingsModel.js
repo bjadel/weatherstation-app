@@ -9,6 +9,9 @@ enyo.kind({
 		var wsLocationModels = [];
 		var locationId = this.get("locationId");
 		for( var key in data){
+			if (key == "find" || key == "findIndex") {
+				continue;
+			}
 			var selected = "false";
 			var location = data[key];
 			if(locationId == location.ID) {
