@@ -1,6 +1,9 @@
 enyo.kind({
 	name: "SettingsView",
 	noStretch: true,
+	events: {
+		onStateChanged:""
+	},
 	published: {
 		settingsModel: null,
 		locationModel: null,
@@ -29,8 +32,10 @@ enyo.kind({
 			var locationId = inEvent.originator.key;
 			this.locationModel.set("locationId", locationId);
 			this.latestModel.set("locationId", locationId);
+			this.settingsModel.set("locationId", locationId);
 			this.latestModel.empty();
 			this.latestModel.fetch();
+			this.doStateChanged();
     }
 		return true;
 	}

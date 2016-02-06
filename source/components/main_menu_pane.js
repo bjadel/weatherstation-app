@@ -31,7 +31,7 @@ enyo.kind({
         { name: "settings", classes: "view", components: [
             { name: "settingsToolbar", kind: "Toolbar", header: "Einstellungen", classes: "settings", onToggleMenu: "toolbarToggleMenuHandler", onHeader: "toolbarToggleMenuHandler" },
             { kind: "enyo.Scroller", strategyKind: "TouchScrollStrategy", components: [
-              { kind: "SettingsView", name: "settingsView", classes: "content"}
+              { kind: "SettingsView", name: "settingsView", classes: "content", onStateChanged: "settingsViewChanged"}
             ]}
         ]},
         { name: "impressum", classes: "view", components: [
@@ -99,8 +99,10 @@ enyo.kind({
   toolbarToggleSecondaryMenuHandler: function(inSender, inEvent) {
     this.log();
     this.$.menupane.toggleSecondaryMenu();
+  },
+  settingsViewChanged: function(inSender, inEvent) {
+    this.$.latestToolbar.setHeader("Aktuell - " + this.$.settingsView.get("settingsModel").getSelectedLocation().NAME);
   }
-
 });
 
 enyo.kind({
