@@ -18,7 +18,13 @@ enyo.kind({
 							]}
 						]}
 			], bindings: [
-				{from: "model.VALUE", to: "$.value.content"},
+				{from: "model.VALUE", to: "$.value.content", transform:
+					function (v) {
+						var curLocale = new ilib.Locale();
+						var fmt = new ilib.NumFmt({locale: curLocale});
+						return fmt.format(v);
+					}
+				},
 				{from: "model.CREATIONDATE", to: "$.date.content", transform:
 					function (v) {
 						try {
