@@ -49,7 +49,7 @@ enyo.kind({
     // init model for selected location
     var locationId = localStorage.getItem("locationId");
     if (locationId == null) {
-	locationId = 1;
+      locationId = 1;
     }
     var locationModel = new LocationModel({locationId: locationId});
     // init model for latestView
