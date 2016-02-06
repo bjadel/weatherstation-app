@@ -15,7 +15,8 @@ enyo.kind({
 					{ name: "name", content: "Wetterstation", tag: "span"}
 				], bindings: [
 	        {from: "model.NAME", to: "$.name.content"},
-					{from: "model.ID", to: "$.checkbox.key"}
+					{from: "model.ID", to: "$.checkbox.key"},
+					{from: "model.SELECTED", to: "$.checkbox.checked"}
 	      ]}
 	    ]}
   	]}

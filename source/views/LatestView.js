@@ -42,7 +42,7 @@ enyo.kind({
 							var fmt = new ilib.DateFmt({type: "datetime", locale: curLocale, timezone: "Europe/Berlin"});
 							var d = fmt.format(new Date(Date.UTC(year, month, day, hour, minute, second)));
 						} catch(err) {
-							console.exception("Parsing error of date.");
+							console.error("Parsing error of date. Error: " + err);
 							return v;
 						}
 						return d;

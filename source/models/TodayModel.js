@@ -1,9 +1,7 @@
 enyo.kind({
 	name: "TodayModel",
 	kind: "enyo.Model",
-	getUrl: function() {
-    return "http://www.adelberg-online.de/weatherstation/ws/app/today";
-  },
+	url: "http://www.adelberg-online.de/weatherstation/ws/app/today",
   parse: function(data) {
     // format date
     // temperature 1 sensor

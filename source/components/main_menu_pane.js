@@ -48,7 +48,7 @@ enyo.kind({
     this.inherited(arguments);
     // init model for selected location
     var locationId = localStorage.getItem("locationId");
-    if (locationId == null) {
+    if (locationId == null || locationId == "undefined") {
       locationId = 1;
     }
     var locationModel = new LocationModel({locationId: locationId});
@@ -63,10 +63,10 @@ enyo.kind({
     todayModel.addListener("change", function(record, event) {
       app.$.mainView.$.MainMenuPane.updateTodayView(record);
     }, false);
-    todayModel.fetch();
+    todayModel.fetch({parse:true});
     // init settingsview
-    var settingsModel = new SettingsModel();
-    settingsModel.fetch();
+    var settingsModel = new SettingsModel({locationId: locationId});
+    settingsModel.fetch({parse:true});
     this.$.settingsView.set("settingsModel", settingsModel);
     this.$.settingsView.set("locationModel", locationModel);
     this.$.settingsView.set("latestModel", latestModel);

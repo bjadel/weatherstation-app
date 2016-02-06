@@ -2,11 +2,7 @@ enyo.kind({
 	name: "LatestModel",
 	kind: "enyo.Collection",
 	getUrl: function() {
-		var url = "http://www.adelberg-online.de/weatherstation/ws/app/location/"+this.get('locationId')+"/latest";
-		return url;
+		return "http://www.adelberg-online.de/weatherstation/ws/app/location/"+this.get('locationId')+"/latest";
   },
-  parse: function(data) {
-  	return data.result;
-  },
-  source: 'latestModelSource'
+  source: "latestModelSource"
 });
