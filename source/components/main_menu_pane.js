@@ -54,7 +54,7 @@ enyo.kind({
     var locationModel = new LocationModel({locationId: locationId});
     // init model for latestView
     var latestModel = new LatestModel({locationId: locationId});
-    latestModel.fetch();
+    // fetch of latest model is called from settings view (select checkbox)
     this.$.latestView.set("latestModel", latestModel);
     // init todayView
     var date = new Date();
