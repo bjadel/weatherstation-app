@@ -10,6 +10,14 @@
 	background: url("../../assets/sandswitch-5percent.svg") no-repeat center;
 }
 
+.toolbar, .onyx-sample-divider {
+	font-size: 1.3rem;
+}
+
+.onyx-checkbox {
+	margin: 0.25rem;
+}
+
 /* MenuPaneSample.css */
 
 .menu-header,
@@ -19,6 +27,7 @@
   /* width: 100%; */
   color: white;
   padding: 16px 0 0 16px;
+	font-size: 1.3rem;
 }
 
 .menu-header > *,
@@ -120,6 +129,16 @@
   min-height: 50px;
   display: block;
   float: left;
+}
+
+.latest_sensor_element .value {
+	font-size: 26px;
+	font-size: 2rem;
+}
+
+.latest_sensor_element .unit {
+	font-size: 26px;
+	font-size: 2rem;
 }
 
 .latest_sensor_element h4, .latest_sensor_element span, .latest_sensor_element div {

@@ -12,8 +12,8 @@ enyo.kind({
 							{tag: "span", components: [
 									{kind: "enyo.Control", name: "date", classes: "name", tag: "span"},
 									{classes: "symbol", tag: "span"},
-									{kind: "enyo.Control", name: "value", classes: "name", tag: "span"},
-									{kind: "enyo.Control", name: "unit", classes: "name", tag: "span"}
+									{kind: "enyo.Control", name: "value", classes: "value", tag: "span"},
+									{kind: "enyo.Control", name: "unit", classes: "unit", tag: "span"}
 								]}
 							]}
 						]}
