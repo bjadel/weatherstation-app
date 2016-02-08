@@ -62,38 +62,26 @@
   background: -ms-linear-gradient(top, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* IE10+ */
   background: linear-gradient(to bottom, #313131 0%,#313131 50%,#313131 51%,#191919 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#313131', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+	border-left-width:1em;
+  border-left-style:solid;
+	padding-left:1em;
+  text-align:justify;
 }
 
 .menu-item.latest {
-  border-left-width:1em;
-  border-left-style:solid;
   border-color:#7be91e;
-  padding-left:1em;
-  text-align:justify;
 }
 
 .menu-item.today {
-  border-left-width:1em;
-  border-left-style:solid;
   border-color:#2434d4;
-  padding-left:1em;
-  text-align:justify;
 }
 
 .menu-item.settings {
-  border-left-width:1em;
-  border-left-style:solid;
   border-color:#CDAA7D;
-  padding-left:1em;
-  text-align:justify;
 }
 
 .menu-item.impressum {
-  border-left-width:1em;
-  border-left-style:solid;
   border-color:#e4fe6e;
-  padding-left:1em;
-  text-align:justify;
 }
 
 .menupane-pane {
@@ -121,8 +109,7 @@
   padding: 15px;
 }
 
-.latest_sensor_element .symbol-C {
-  background-image: url(../../assets/temperature1.svg);
+.latest_sensor_element .symbol {
 	background-size: Auto 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -130,25 +117,17 @@
   min-height: 50px;
   display: block;
   float: left;
+}
+
+.latest_sensor_element .symbol-C {
+  background-image: url(../../assets/temperature1.svg);
 }
 
 .latest_sensor_element .symbol-Pa {
   background-image: url(../../assets/pressure1.svg);
-	background-size: Auto 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-width: 50px;
-  min-height: 50px;
-  display: block;
-  float: left;
 }
 
-.latest_sensor_element .value {
-	font-size: 26px;
-	font-size: 2rem;
-}
-
-.latest_sensor_element .unit {
+.latest_sensor_element .value, .latest_sensor_element .unit {
 	font-size: 26px;
 	font-size: 2rem;
 }
@@ -189,49 +168,27 @@
 }
 
 .toolbar {
-
+	border-top-width:0px;
+  border-bottom-width:0px;
+  border-right-width:0px;
+  border-left-width:0.3em;
+  border-left-style:solid;
+  padding-left:0.3em;
+  text-align:justify;
 }
 
 .toolbar.latest {
-  border-top-width:0px;
-  border-bottom-width:0px;
-  border-right-width:0px;
-  border-left-width:0.3em;
-  border-left-style:solid;
   border-color:#7be91e;
-  padding-left:0.3em;
-  text-align:justify;
 }
 
 .toolbar.today {
-  border-top-width:0px;
-  border-bottom-width:0px;
-  border-right-width:0px;
-  border-left-width:0.3em;
-  border-left-style:solid;
   border-color:#2434d4;
-  padding-left:0.3em;
-  text-align:justify;
 }
 
 .toolbar.settings {
-  border-top-width:0px;
-  border-bottom-width:0px;
-  border-right-width:0px;
-  border-left-width:0.3em;
-  border-left-style:solid;
   border-color:#CDAA7D;
-  padding-left:0.3em;
-  text-align:justify;
 }
 
 .toolbar.impressum {
-  border-top-width:0px;
-  border-bottom-width:0px;
-  border-right-width:0px;
-  border-left-width:0.3em;
-  border-left-style:solid;
   border-color:#e4fe6e;
-  padding-left:0.3em;
-  text-align:justify;
 }

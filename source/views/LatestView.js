@@ -55,7 +55,7 @@ enyo.kind({
 				},
 				{from: "model.UNIT", to: "$.symbol.classes", transform:
 					function (unit) {
-						return "symbol-" + unit;
+						return "symbol symbol-" + unit;
 					}
 				}
 			]}
