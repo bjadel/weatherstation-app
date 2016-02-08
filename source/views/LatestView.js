@@ -21,7 +21,7 @@ enyo.kind({
 				{from: "model.VALUE", to: "$.value.content", transform:
 					function (v) {
 						var curLocale = new ilib.Locale();
-						var fmt = new ilib.NumFmt({locale: curLocale});
+						var fmt = new ilib.NumFmt({locale: curLocale, maxFractionDigits: 1});
 						return fmt.format(v);
 					}
 				},
