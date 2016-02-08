@@ -11,7 +11,7 @@ enyo.kind({
 						{layoutKind: "FittableRowsLayout", classes: "latest_sensor_element", noStretch: true, components: [
 							{tag: "span", components: [
 									{kind: "enyo.Control", name: "date", classes: "name", tag: "span"},
-									{classes: "symbol", tag: "span"},
+									{classes: "symbol", name: "symbol", tag: "span"},
 									{kind: "enyo.Control", name: "value", classes: "value", tag: "span"},
 									{kind: "enyo.Control", name: "unit", classes: "unit", tag: "span"}
 								]}
@@ -51,6 +51,11 @@ enyo.kind({
 				{from: "model.UNIT", to: "$.unit.content", transform:
 					function (v) {
 						return $L(v);
+					}
+				},
+				{from: "model.UNIT", to: "$.symbol.classes", transform:
+					function (unit) {
+						return "symbol-" + unit;
 					}
 				}
 			]}

@@ -121,8 +121,20 @@
   padding: 15px;
 }
 
-.latest_sensor_element .symbol {
-  background-image: url(../../assets/thermo1.svg);
+.latest_sensor_element .symbol-C {
+  background-image: url(../../assets/temperature1.svg);
+	background-size: Auto 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 50px;
+  min-height: 50px;
+  display: block;
+  float: left;
+}
+
+.latest_sensor_element .symbol-Pa {
+  background-image: url(../../assets/pressure1.svg);
+	background-size: Auto 100%;
   background-repeat: no-repeat;
   background-position: center;
   min-width: 50px;
