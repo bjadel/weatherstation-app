@@ -1,0 +1,15 @@
+{
+  "name": "weatherstation-app",
+  "version": "0.0.4",
+  "description": "Zeigt Dir die Messwerte Deiner Wetterstation.",
+  "main": "index.js",
+  "moduleDir": "src",
+  "assets": [
+    "favicon.ico",
+    "assets/**/*.*"
+  ],
+  "styles": [
+    "css/*.less",
+    "css/*.css"
+  ]
+}
